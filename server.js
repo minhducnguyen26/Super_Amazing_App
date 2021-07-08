@@ -8,6 +8,7 @@ const {Text} = require("./model");
 const cors = require("cors");
 app.use(cors());
 
+//! Middleware
 app.use((req, res, next) => {
     console.log("");
     console.log("===============================================================================================")
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
     next();
 })
 
+//! GET - get all text messages
 app.get("/text", function(req, res){
     res.setHeader("Content-Type", "application/json");
     Text.find({},(err, texts)=>{
@@ -41,6 +43,7 @@ app.get("/text", function(req, res){
     })
 })
 
+//! POST - create one new text message
 app.post("/text", function(req, res){
     res.setHeader("Content-Type", "application/json");
     console.log(`Creating text message with body`, req.body)
@@ -59,6 +62,42 @@ app.post("/text", function(req, res){
         }
         res.status(201).json(text);
     })
+})
+
+//! DELETE - delete one text message by id (for database clean up purpose)
+app.delete("/text/:id", function(req, res) {
+    res.setHeader("Content-Type", "application/json")
+
+    console.log(`Deleting one text message with id: ${req.params.id}.`);
+    
+    Text.findByIdAndDelete(req.params.id, function(error, thread) {
+       // check if there was an error
+       if(error) {
+        console.log(`There was an error deleting a text message with id ${req.params.id}`);
+        console.log(error);
+
+        // sending back the error
+        res.status(500).json({
+            message: `Unable to find a text message with id: ${req.params.id}`,
+            error  : error
+        });
+        return
+        } 
+        // check if the text message actually exists
+        else if(thread === null) {
+            console.log(`There was an error finding a text message with id ${req.params.id}`);
+            console.log(error);
+
+            // sending back the error
+            res.status(404).json({
+                message: `Unable to find text message with id: ${req.params.id}`,
+                error  : error
+            });
+            return
+        }
+        // success! return text message that was deleted
+        res.status(200).json(thread)
+    }) 
 })
 
 module.exports = app;
