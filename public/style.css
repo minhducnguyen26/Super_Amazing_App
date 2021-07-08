@@ -73,7 +73,7 @@
 }
 
 .single_message {
-    margin: 0 15px 15px;
+    margin: 0 15px 16px;
 }
 
 input {
@@ -111,9 +111,8 @@ input {
 }
 
 .message_body {
-    padding: 5px 20px;
+    padding: 7px 20px;
     border-radius: 25px;
-    color: var(--black);
     line-height: 26px;
     background-color: var(--blue);
     color: white;
