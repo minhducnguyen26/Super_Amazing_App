@@ -46,8 +46,24 @@ app.get("/", function(req, res){
 
 
 
-app.post("/", function(req, res){
+app.post("/text", function(req, res){
+    res.setHeader("Content-Type", "application/json");
+    console.log(`creating text with body`, req.body)
 
+    let newText = {
+        author: req.body.author || "",
+        text: req.body.text || "",
+    }
+    Text.create(newText, (err, text) => {
+        if(err){
+            res.status(500).json({
+                error: err,
+                message: "could not make thread",
+            })
+            return;
+        }
+        res.status(201).json(text);
+    })
 })
 
 
