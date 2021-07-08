@@ -96,7 +96,7 @@ input {
 }
 
 .home_button {
-    border: 1px solid var(--black);
+    border: 2px solid var(--black);
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -112,7 +112,8 @@ input {
 
 .message_body {
     border: 1px solid var(--black);
-    padding: 5px 10px;
+    padding: 5px 20px;
     border-radius: 25px;
     color: var(--black);
+    line-height: 26px;
 }
