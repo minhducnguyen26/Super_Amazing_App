@@ -1,38 +1,44 @@
 var app = new Vue({
     el  : "#app",
     data:  {
-        author: "",
+        author : "",
         newText: "",
-        texts: [],
+        texts  : [],
         server_url: "http://localhost:8080",
-
+    },
+    created() {
+        this.getPostsFromServer();
     },
     methods:{
-
         postText: function(){
-            //if(this.author != null && this.author != "" && this.newText != null && this.newText != ""){
-                myData = {
-                    author: this.author,
-                    text: this.newText
-                }
-                fetch(this.server_url+"/text", {
-                    method: "POST",
-                    body: JSON.stringify(myData),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).then(function(response){
-    
-                })
+            myData = {
+                author: this.author,
+                text  : this.newText
+            }
+            
+            fetch(this.server_url + "/text", {
+                method: "POST",
+                body: JSON.stringify(myData),
+                headers: { "Content-Type": "application/json" }
+            }).then(function(response){
+                // check to see if there is any error
+                if(response.status == 400) {
+                    response.json().then(function(data) {
+                        alert(data.msg)
+                    })
+                } else if(response.status == 201) {
+                    // update the messages list
+                    app.getPostsFromServer();
 
-                this.texts.push(myData)
-            //}
+                    // clear all inputs in the new text message input fields
+                    app.author  = "";
+                    app.newText = "";
+                }
+            })
         },
         getPostsFromServer: function(){
-            fetch(`${this.url}/text`).then(function(response){
-                console.log("This is the response", response);
+            fetch(`${this.server_url}/text`).then(function(response){
                 response.json().then(function(data){
-                    console.log("This is the data: ", data);
                     app.texts = data;
                 })
             })
