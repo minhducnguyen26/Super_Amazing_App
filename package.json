@@ -1,0 +1,25 @@
+{
+  "name": "super_amazing_app",
+  "version": "1.0.0",
+  "description": "Let's Build This Amazing App!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhducnguyen26/Super_Amazing_App.git"
+  },
+  "author": "danielurias, froggyfish, jandirdlctm, minhnguyen26",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhducnguyen26/Super_Amazing_App/issues"
+  },
+  "homepage": "https://github.com/minhducnguyen26/Super_Amazing_App#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2",
+    "nodemon": "^2.0.10"
+  }
+}
