@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sender_name {
+    margin-left: 15px;
+    font-size: 18px;
+    color: blue;
+}
+
+.message_body {
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
