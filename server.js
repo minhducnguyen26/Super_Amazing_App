@@ -26,6 +26,9 @@ app.use((req, res, next) => {
     next();
 })
 
+app.get("/", function(req, res){
+    console.log("get request hit");
+})
 
 
 
