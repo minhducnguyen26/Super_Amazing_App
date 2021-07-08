@@ -33,14 +33,14 @@
             <div class="create_message_section">
                 <div class="inputs_section">
                     <div class="name_input">
-                        <input type="text" placeholder="Enter your name">
+                        <input type="text" placeholder="Enter your name" v-model="author">
                     </div>
                     <div class="message_input">
-                        <input type="text" placeholder="Enter text message">
+                        <input type="text" placeholder="Enter text message" v-model="newText">
                     </div>
                 </div>
                 
-                <div class="send_button">Send</div>
+                <div class="send_button" v-on:click="postText">Send</div>
             </div>
         </div>
     </div>
