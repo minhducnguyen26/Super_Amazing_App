@@ -3,6 +3,7 @@ const app = express();
 
 app.use(express.json({}));
 
+const {Text} = require("./model");
 
 const cors = require("cors");
 app.use(cors());
@@ -26,7 +27,54 @@ app.use((req, res, next) => {
     next();
 })
 
+app.get("/text", function(req, res){
+    res.setHeader("Content-Type", "application/json");
+    Text.find({},(err, texts)=>{
+        if (err){
+            res.status(500).json({
+                message: "unable to get all posts",
+                error: err
+            })
+            return
+        }
+        res.status(200).json(texts);
+    })
+})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post("/text", function(req, res){
+    res.setHeader("Content-Type", "application/json");
+    console.log(`creating text with body`, req.body)
+
+    let newText = {
+        author: req.body.author || "",
+        text: req.body.text || "",
+    }
+    Text.create(newText, (err, text) => {
+        if(err){
+            res.status(500).json({
+                error: err,
+                message: "could not make thread",
+            })
+            return;
+        }
+        res.status(201).json(text);
+    })
+})
 
 
 module.exports = app;
