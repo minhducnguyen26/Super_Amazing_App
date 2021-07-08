@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.get("/", function(req, res){
-    console.log("get request hit");
+    console.log("get request hits");
 })
 
 
