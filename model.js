@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const postSchema = mongoose.Schema({
+const textSchema = mongoose.Schema({
     author: String,
     text: String,
 },
@@ -9,5 +9,5 @@ const postSchema = mongoose.Schema({
 });
 
 module.exports = {
-    Thread,
+    textSchema,
 };

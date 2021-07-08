@@ -3,6 +3,7 @@ const app = express();
 
 app.use(express.json({}));
 
+const {Text} = require("./model")
 
 const cors = require("cors");
 app.use(cors());
