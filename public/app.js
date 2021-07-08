@@ -9,14 +9,6 @@ var app = new Vue({
     },
     methods:{
 
-
-
-
-
-
-
-
-
         postText: function(){
             //if(this.author != null && this.author != "" && this.newText != null && this.newText != ""){
                 myData = {
