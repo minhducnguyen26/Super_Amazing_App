@@ -8,6 +8,8 @@ const textSchema = mongoose.Schema({
     timestamps: true
 });
 
+const Text = mongoose.model("Text", textSchema)
+
 module.exports = {
-    textSchema,
+    Text,
 };
