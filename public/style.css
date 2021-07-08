@@ -6,9 +6,8 @@
 }
 
 :root {
-    --green      : #83BCA9;
-    --green-dark : #3E5641;
-    --black      : #282B28;
+    --blue : #006AFF;
+    --black: #282B28;
 }
 
 #app {
@@ -20,13 +19,22 @@
 
 .front_camera {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
+.camera_and_speaker {
+    display: flex;
+    width: 122px;
+    margin-right: 37px;
+    margin-top: 11px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .main_camera {
-    height: 15px;
-    width: 15px;
+    height: 12px;
+    width: 12px;
     background-color: var(--black);
     border-radius: 50%;
 }
@@ -36,6 +44,9 @@
     width: 75px;
     background: var(--black);
     border-radius: 25px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
 }
 
 .dot {
@@ -50,11 +61,42 @@
     margin: -2px;
     padding: 10px;
     border-radius: 5px;
-    height: 60vh;
+    height: 80vh;
+}
+
+.messages {
+    height: 56vh;
+    border-bottom: 1px solid var(--black);
+    margin: 10px -10px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.single_message {
+    margin: 0 15px 15px;
+}
+
+input {
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.send_button {
+    margin: 0 auto;
+    width: 100px;
+    border: 1px solid var(--blue);
+    background-color: var(--blue);
+    color: white;
+    padding: 7px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 17px;
 }
 
 .home_button {
-    border: 1px solid black;
+    border: 1px solid var(--black);
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -63,12 +105,13 @@
 
 .sender_name {
     margin-left: 15px;
-    font-size: 15px;
-    color: var(--green-dark);
+    font-size: 12px;
+    color: var(--black);
+    margin-bottom: 3px;
 }
 
 .message_body {
-    border: 1px solid var(--green-dark);
+    border: 1px solid var(--black);
     padding: 5px 10px;
     border-radius: 25px;
     color: var(--black);
