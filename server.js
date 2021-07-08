@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json({}));
 
-const {Text} = require("./model")
+const {Text} = require("./model");
 
 const cors = require("cors");
 app.use(cors());
@@ -27,8 +27,18 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get("/", function(req, res){
-    console.log("get request hits");
+app.get("/text", function(req, res){
+    res.setHeader("Content-Type", "application/json");
+    Text.find({},(err, texts)=>{
+        if (err){
+            res.status(500).json({
+                message: "unable to get all posts",
+                error: err
+            })
+            return
+        }
+        res.status(200).json(texts);
+    })
 })
 
 
