@@ -32,7 +32,7 @@ app.get("/text", function(req, res){
     Text.find({},(err, texts)=>{
         if (err){
             res.status(500).json({
-                message: "unable to get all posts",
+                message: "unable to get all text messages",
                 error: err
             })
             return
@@ -41,40 +41,24 @@ app.get("/text", function(req, res){
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.post("/text", function(req, res){
     res.setHeader("Content-Type", "application/json");
-    console.log(`creating text with body`, req.body)
+    console.log(`Creating text message with body`, req.body)
 
     let newText = {
         author: req.body.author || "",
-        text: req.body.text || "",
+        text  : req.body.text || "",
     }
     Text.create(newText, (err, text) => {
         if(err){
             res.status(500).json({
                 error: err,
-                message: "could not make thread",
+                message: "Could not create a new text message",
             })
             return;
         }
         res.status(201).json(text);
     })
 })
-
 
 module.exports = app;
