@@ -46,3 +46,6 @@ var app = new Vue({
     }
 })
 
+setInterval(() => {
+    getPostsFromServer();
+}, 100);
