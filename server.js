@@ -7,6 +7,7 @@ const {Text} = require("./model");
 
 const cors = require("cors");
 app.use(cors());
+app.use(express.static('public'));
 
 //! Middleware
 app.use((req, res, next) => {
