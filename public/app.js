@@ -6,8 +6,10 @@ var app = new Vue({
         texts  : [],
         server_url: "http://localhost:8080",
     },
-    created() {
+    created() {     
+    setInterval(() => {
         this.getPostsFromServer();
+    }, 100);
     },
     methods:{
         postText: function(){
@@ -45,7 +47,3 @@ var app = new Vue({
         }
     }
 })
-
-setInterval(() => {
-    getPostsFromServer();
-}, 100);
