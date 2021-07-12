@@ -9,7 +9,7 @@ var app = new Vue({
     created() {     
     setInterval(() => {
         this.getPostsFromServer();
-    }, 100);
+    }, 1000);
     },
     methods:{
         postText: function(){
