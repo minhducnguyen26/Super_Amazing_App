@@ -4,7 +4,7 @@ var app = new Vue({
         author : "",
         newText: "",
         texts  : [],
-        server_url: "http://localhost:8080",
+        server_url: "https://code-school-texting-app.herokuapp.com",
     },
     created() {     
     setInterval(() => {
